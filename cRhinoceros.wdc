@@ -1,0 +1,109 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : cRhinoceros
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x1225fd920034433f
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  type_code : 10
+  p_codes :
+   -
+     code : |1+
+      cRhinoceros est une Classe
+      	
+      	// Un rhinocéros est un animal
+      	hérite de cAnimal
+      	
+      	PROTÉGÉE
+      	// Membres spécifiques à la classe rhinocéros
+      	m_nLongueurCorne est un entier
+      	
+      FIN
+     type : 131072
+  procedures :
+   -
+     name : Constructeur
+     procedure_id : 1307730070331540287
+     type_code : 27
+     code : |1+
+      PROCEDURE Constructeur(sNom est une chaîne, nLongueurCorne est un entier)
+      
+      // Appelle le constructeur de la classe "parent" (cAnimal)
+      Constructeur cAnimal(sNom)
+      
+      // Mémorise la longueur de la corne
+      m_nLongueurCorne = nLongueurCorne
+      
+      // Image spécifique
+      ImageAnimal = dChargeImage(".\images\rhino.png")
+      
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 1307730070331605823
+     type_code : 28
+     code : |1+
+      PROCEDURE Destructeur()
+      
+     type : 655360
+   -
+     name : DessineAnimal
+     internal_properties : CAAAAAgAAADqPHrXde4UToRroAIeuKLfHoAnBG2rRarnCPqpLWGkMG5VywKc16txHS0zmltC0IqHZHJF2Q4V/VCghxCXzOyGtSmPxWKb9K/LHpm5ARTsDu6mxbd8i3lVTG1SryzXnJZFUQmtP1hNyXrRdjob2Vk54wSBPnna9EaocXrXND16ZmzNTCb4O6JQTj9v96/8TPTKs2J7yw==
+     procedure_id : 1307989915851334434
+     type_code : 12
+     code : |1-
+      // Résumé : Dessine l'animal
+      // Syntaxe :
+      //DessineAnimal (<pImageSavane> est Image, <nPosX> est entier, <nPosY> est entier)
+      //
+      // Paramètres :
+      //	pImageSavane (Image) : Image
+      //	nPosX (entier) : Position horizontale
+      //	nPosY (entier) : Position verticale
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCEDURE VIRTUELLE DessineAnimal(pImageSavane est une image, LOCAL nPosX est un entier, LOCAL nPosY est un entier)
+      
+      // Copie l'image de l'animal dans l'image de la savane
+      dCopie(ImageAnimal, pImageSavane, 0, 0, ImageAnimal.Largeur, ImageAnimal.Hauteur, nPosX, nPosY, ImageAnimal.Largeur, ImageAnimal.Hauteur)
+      
+      // Affiche le nom de l'animal d'une couleur spécifique (gris)
+      dPolice("Arial", 10, iGras)
+      dTexte(nPosX+5, nPosY+ImageAnimal.hauteur+5, NomAnimal, RVB(179,192,182))
+     type : 458752
+  properties :
+   -
+     name : LongueurCorne
+     identifier : 0x1226e03d0010e7ee
+     type_code : 103
+     p_codes :
+      -
+        code : |1-
+         PROCEDURE LongueurCorne()
+         
+         RENVOYER m_nLongueurCorne
+        type : 1966080
+      -
+        code : |1-
+         PROCEDURE LongueurCorne(Valeur)
+         
+         m_nLongueurCorne=Valeur
+        type : 2031616
+     template_refs : []
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+resources :
+ string_res :
+  identifier : 0x10f831a428284990
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

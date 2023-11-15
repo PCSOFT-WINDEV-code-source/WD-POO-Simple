@@ -1,0 +1,110 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : cElephant
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x1225fd8800261c01
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  type_code : 10
+  p_codes :
+   -
+     code : |1+
+      cElephant est une Classe
+      	
+      	// Un éléphant est un animal
+      	hérite de cAnimal
+      	
+      	protegee
+      		// Membres spécifiques à la classe éléphant
+      		m_nLongueurTrompe est un entier
+      	
+      FIN
+     type : 131072
+  procedures :
+   -
+     name : Constructeur
+     procedure_id : 1307730027380939777
+     type_code : 27
+     code : |1+
+      PROCEDURE Constructeur(sNom est une chaîne, nLongueurTrompe est un entier)
+      
+      // Appelle le constructeur de la classe "parent" (cAnimal)
+      constructeur Canimal(sNom)
+      
+      // Mémorise la longueur de la trompe
+      m_nLongueurTrompe = nLongueurTrompe
+      
+      // Image spécifique
+      ImageAnimal = dChargeImage(".\images\elephant.png")
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 1307730027381005313
+     type_code : 28
+     code : |1+
+      PROCEDURE Destructeur()
+      
+     type : 655360
+   -
+     name : DessineAnimal
+     internal_properties : CAAAAAgAAAAqfDoXNS5UbkQrYILeOGKfnoAnBK1rBernCHrpLaEksK6Vi8KcVyvxXe1zGhvCEEoH5HJFGc7VvdAgB1AXDOyG9enPheIbdK8L3rlZ4XTM7s6G5dec69k1rE3yT4w3fPYlMSlN3zitqVqxltr7OTkZw2Qh3hk61KYIURp3lJ3aRkytbMaYmwIwLh+PF488jLQKc6K7iw==
+     procedure_id : 1307989924441336169
+     type_code : 12
+     code : |1+
+      // Résumé : Dessine l'animal
+      // Syntaxe :
+      //DessineAnimal (<pImageSavane> est Image, <nPosX> est entier, <nPosY> est entier)
+      //
+      // Paramètres :
+      //	pImageSavane (Image) : Image
+      //	nPosX (entier) : Position horizontale
+      //	nPosY (entier) : Position verticale
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCEDURE VIRTUELLE DessineAnimal(pImageSavane est une image, LOCAL nPosX est un entier, LOCAL nPosY est un entier)
+      
+      // L'éléphant est positionné plus bas
+      nPosY += 30
+      // Copie l'image de l'animal dans l'image de la savane
+      dCopie(ImageAnimal, pImageSavane, 0, 0, ImageAnimal.Largeur, ImageAnimal.Hauteur, nPosX, nPosY, ImageAnimal.Largeur, ImageAnimal.Hauteur)
+      
+      // Affiche le nom de l'animal d'une couleur spécifique (rose)
+      dPolice("Arial", 10, iGras)
+      dTexte(nPosX+5, nPosY+ImageAnimal.hauteur+5, NomAnimal, RVB(202,179,171))
+     type : 458752
+  properties :
+   -
+     name : LongueurTrompe
+     identifier : 0x1226046d00510ac3
+     type_code : 103
+     p_codes :
+      -
+        code : |1-
+         PROCEDURE LongueurTrompe()
+         
+         RENVOYER m_nLongueurTrompe
+        type : 1966080
+      -
+        code : |1-
+         PROCEDURE LongueurTrompe(Valeur)
+         
+         m_nLongueurTrompe = Valeur
+        type : 2031616
+     template_refs : []
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+resources :
+ string_res :
+  identifier : 0x10f831a4283c49be
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

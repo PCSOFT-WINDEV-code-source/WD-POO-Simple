@@ -1,0 +1,161 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : cSavane
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x1225fd6800189ddd
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  type_code : 10
+  p_codes :
+   -
+     code : |1+
+      cSavane est une Classe
+      
+      	protege
+      		m_sNomChampImagePourDessin est une chaine // Nom du champ Image utilisé pour le dessin
+      		m_tabLesAnimaux est un tableau de cAnimal dynamique // Liste des animaux de la savane
+      FIN
+     type : 131072
+  procedures :
+   -
+     name : Constructeur
+     procedure_id : 1307729889941102045
+     type_code : 27
+     code : |1-
+      PROCEDURE Constructeur(sNomChampImagePourDessin est une chaine)
+      
+      // Mémorise le nom du champ
+      m_sNomChampImagePourDessin = sNomChampImagePourDessin
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 1307729889941167581
+     type_code : 28
+     code : |1+
+      PROCEDURE Destructeur()
+      
+     type : 655360
+   -
+     name : AjouteAnimal
+     internal_properties : CAAAAAgAAAC9oPkPH16rnSfIjz8O6w/x46fdWAPtdZ5GqfCAN8PlEeI9BwevakNgQkz4iaS1+lsQpwRrtTHrppDgsXSWpzBI0WNzvA/m0SKzx1lRN7WI0wRZXhdGrLmIKZt0FWJ51669ZviLul+9jwss2ZHyQ4yKGpct2Yt3C4G7YjI19k1LpmB8No7iVrg0asFfeA==
+     procedure_id : 1307739691060654012
+     type_code : 12
+     code : |1-
+      // Résumé : Ajoute un animal dans la savane
+      // Syntaxe :
+      //[ <Résultat> = ] AjouteAnimal (<pclUnAnimal> est cAnimal dynamique)
+      //
+      // Paramètres :
+      //	pclUnAnimal (cAnimal dynamique) : Objet cAnimal à ajouter
+      // Valeur de retour :
+      // 	booléen : Vrai si l'animal est ajouté, Faux autrement
+      //// Traitement automatique des erreurs : RENVOYER FAUX
+      //
+      
+      PROCEDURE AjouteAnimal(pclUnAnimal est un cAnimal dynamique)
+      
+      // Pas plus de 5 animaux
+      si m_tabLesAnimaux..Occurrence = 5 alors
+      	Erreur(<§$0000§>)
+      	renvoyer faux
+      FIN
+      
+      // Ajoute l'animal à la liste
+      ajoute(m_tabLesAnimaux, pclUnAnimal)
+      
+      // Dessine la savane
+      DessineSavane()
+      
+      renvoyer vrai
+     type : 458752
+   -
+     name : DessineSavane
+     procedure_id : 1307740524284372071
+     type_code : 12
+     code : |1-
+      // Résumé : Dessine la savane et les animaux
+      // Syntaxe :
+      //DessineSavane ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCEDURE DessineSavane()
+      
+      nPosX, nPosY sont des entiers
+      ImageSavane est une image
+      
+      
+      // Dimensions de l'image
+      ImageSavane..largeur = {m_sNomChampImagePourDessin}..Largeur
+      ImageSavane..Hauteur = {m_sNomChampImagePourDessin}..Hauteur
+      
+      // Image de fond
+      ImageSavane = dChargeImage(".\images\Landscape.jpg")
+      
+      // Début de dessin
+      dfindessin(ImageSavane)
+      dDébutDessin(ImageSavane, dEffacer)
+      
+      // Position initiale
+      nPosX = {m_sNomChampImagePourDessin}..largeur /7
+      nPosY = {m_sNomChampImagePourDessin}..hauteur /2
+      // Affiche les animaux
+      pour tout element pclUnAnimal de m_tabLesAnimaux
+      	
+      	// Dessine l'animal
+      	pclUnAnimal:DessineAnimal(ImageSavane, nPosX, nPosY)
+      	
+      	// Incrémente la prochaine position
+      	nPosX += pclunanimal.ImageAnimal.largeur + 10 
+      	
+      FIN
+      
+      // Affiche l'image de la savane dans le champ Image
+      {m_sNomChampImagePourDessin} = ImageSavane
+     type : 458752
+   -
+     name : Vide
+     procedure_id : 1308003195896647661
+     type_code : 12
+     code : |1+
+      // Résumé : Supprime tous les animaux
+      // Syntaxe :
+      //Vide ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCEDURE Vide()
+      
+      // Supprime tous les animaux
+      supprimetout(m_tabLesAnimaux)
+      
+      // Dessine la savane
+      DessineSavane()
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+resources :
+ string_res :
+  identifier : 0x1225fd5e00157622
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+  strings :
+   -
+     text :
+      fr-FR : Pas plus de 5 animaux !
+     index : 0
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

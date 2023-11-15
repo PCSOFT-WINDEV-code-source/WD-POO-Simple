@@ -1,0 +1,112 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : cSinge
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x1225fd8c002d2bc9
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  type_code : 10
+  p_codes :
+   -
+     code : |1+
+      cSinge est une Classe
+      	
+      	// Un singe est un animal
+      	hérite de cAnimal
+      	
+      	PROTÉGÉE
+      	// Membres spécifiques à la classe cSinge
+      	m_sCouleur est un entier
+      	
+      FIN
+     type : 131072
+  procedures :
+   -
+     name : Constructeur
+     procedure_id : 1307730044561271753
+     type_code : 27
+     code : |1+
+      PROCEDURE Constructeur(sNom est une chaîne, sCouleur est une chaine)
+      
+      // Appelle le constructeur de la classe "parent" (cAnimal)
+      Constructeur cAnimal(sNom)
+      
+      // Mémorise la couleur du singe
+      m_sCouleur = sCouleur
+      
+      // Image spécifique
+      ImageAnimal = dChargeImage(".\images\Monkey.png")
+      
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 1307730044561337289
+     type_code : 28
+     code : |1+
+      PROCEDURE Destructeur()
+      
+     type : 655360
+   -
+     name : DessineAnimal
+     internal_properties : CAAAAAgAAACKnFo3VU60foTLgGJeeEK/ngDHZG1LRUqnKNpJ7WEEUO7Va2IcN6sRXc2TupvCMCrHpJKl2W7V3RCAJ7AXjAzmNSkvJeI7tI/L/okpUcS8vh7WlWcsO6kFPP3C3zzHrMY1QRld78g9OSph5urrCalpU/SRLukKpPYYwapHRK2Klhz9HNYoKxLAvg+fJ/8crFSqk0IbKw==
+     procedure_id : 1307989911556300385
+     type_code : 12
+     code : |1-
+      // Résumé : Dessine l'animal
+      // Syntaxe :
+      //DessineAnimal (<pImageSavane> est Image, <nPosX> est entier, <nPosY> est entier)
+      //
+      // Paramètres :
+      //	pImageSavane (Image) : Image
+      //	nPosX (entier) : Position horizontale
+      //	nPosY (entier) : Position verticale
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCEDURE VIRTUELLE DessineAnimal(pImageSavane est une image, LOCAL nPosX est un entier, LOCAL nPosY est un entier)
+      
+      // Le singe est positionné plus haut
+      nPosY -= 80
+      
+      // Copie l'image de l'animal dans l'image de la savane
+      dCopie(ImageAnimal, pImageSavane, 0, 0, ImageAnimal.Largeur, ImageAnimal.Hauteur, nPosX, nPosY, ImageAnimal.Largeur, ImageAnimal.Hauteur)
+      
+      // Affiche le nom de l'animal d'une couleur spécifique (marron)
+      dpolice("Arial", 10, iGras)
+      dTexte(nPosX+5, nPosY+ImageAnimal.hauteur+5, NomAnimal, RVB(208,183,127))
+     type : 458752
+  properties :
+   -
+     name : Couleur
+     identifier : 0x1226dfe4000f8d12
+     type_code : 103
+     p_codes :
+      -
+        code : |1-
+         PROCEDURE Couleur()
+         
+         RENVOYER m_sCouleur
+        type : 1966080
+      -
+        code : |1-
+         PROCEDURE Couleur(Valeur)
+         
+         m_sCouleur=Valeur
+        type : 2031616
+     template_refs : []
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+resources :
+ string_res :
+  identifier : 0x10f831a428224980
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ
